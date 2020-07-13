@@ -2,11 +2,23 @@ language: java
 matrix:
   include:
     - jdk: openjdk8
+      arch: amd64
       env: GRADLE_PUBLISH=true
+    - jdk: openjdk8
+      arch: arm64
+      env: GRADLE_PUBLISH=true  
     - jdk: openjdk11
+      arch: amd64
+      env: GRADLE_PUBLISH=false
+    - jdk: openjdk11
+      arch: arm64
+      env: GRADLE_PUBLISH=false  
+    - jdk: openjdk14
+      arch: amd64
       env: GRADLE_PUBLISH=false
     - jdk: openjdk14
-      env: GRADLE_PUBLISH=false
+      arch: arm64
+      env: GRADLE_PUBLISH=false  
 install: "./installViaTravis.sh"
 script: "./buildViaTravis.sh"
 cache:
